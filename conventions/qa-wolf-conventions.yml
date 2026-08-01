@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qawolf.com/qawolf/rest-overview.md
+summary: >-
+  Cross-cutting request/response semantics for the QA Wolf v0 REST API, derived
+  from the published REST reference and the CLI/CI-SDK docs. QA Wolf recommends
+  the @qawolf/ci-sdk library over direct REST calls for most use cases.
+authentication:
+  style: bearer
+  header: Authorization
+  token: workspace API key (QAWOLF_API_KEY)
+  ref: authentication/qa-wolf-authentication.yml
+versioning:
+  style: uri-path
+  current: v0
+  example: /api/v0/ci-greenlight/{rootRunId}
+  note: Webhook endpoints live under /api/webhooks/ without the v0 segment.
+deduplication:
+  supported: true
+  field: deduplication_key
+  scope: deploy_success trigger request body
+  behavior: >-
+    Controls run cancellation / deduplication behavior for triggered runs. This
+    is a dedup control on the trigger, not a general idempotency-key replay
+    contract; no Idempotency-Key header is documented.
+error_envelope:
+  style: http-status
+  notes: >-
+    Errors are signaled by HTTP status (200 accepted, 401 invalid API key, 403
+    disabled team, 405 wrong method). deploy_success 200 responses carry a
+    results[] array where each item is created_suite_id, duplicate_suite_id, or
+    failure_reason. No RFC 9457 problem+json envelope is documented.
+  ref: errors/qa-wolf-problem-types.yml
+pagination:
+  documented: false
+rate_limiting:
+  documented: false
+request_tracing:
+  documented: false

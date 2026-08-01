@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qawolf.com/qawolf/Integrate-with-webhooks-29c5b2a994fb818d9682eb32ff11feff.md
+spec_type: Webhooks
+summary: >-
+  QA Wolf has two webhook surfaces. Inbound "CI trigger" webhooks are HTTP
+  endpoints QA Wolf exposes so your deploy pipeline can notify it of events.
+  Outbound "bug tracker" webhooks are POSTs QA Wolf sends to your endpoint when
+  a bug report opens or closes, for integrating trackers QA Wolf does not support
+  natively. There is no published AsyncAPI document.
+inbound:
+  description: Endpoints on QA Wolf that your CI/deploy tooling calls to notify QA Wolf.
+  auth: Bearer QAWOLF_API_KEY
+  events:
+    - name: deploy_success
+      method: POST
+      path: /api/webhooks/deploy_success
+      purpose: Notify QA Wolf of a successful deployment to trigger a test run.
+      docs: https://docs.qawolf.com/qawolf/deploy-success
+      operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess
+    - name: environment_terminated
+      method: POST
+      path: /api/webhooks/environment_terminated
+      purpose: >-
+        Notify QA Wolf that an ephemeral environment has been terminated; stops
+        runs targeting it and promotes flows to the static base environment.
+      docs: https://docs.qawolf.com/qawolf/environment_terminated
+      operation: openapi/qa-wolf-rest-openapi.yml#notifyEnvironmentTerminated
+outbound:
+  description: POSTs QA Wolf sends to your configured endpoint for bug-tracker sync.
+  content_type: application/json
+  auth: Optional HTTP basic auth (username/password configured in QA Wolf settings).
+  docs: https://docs.qawolf.com/qawolf/Integrate-with-webhooks-29c5b2a994fb818d9682eb32ff11feff
+  events:
+    - event: bug-report-opened
+      direction: qawolf->you
+      payload_fields: [id, title, description, url, event]
+    - event: bug-report-closed
+      direction: qawolf->you
+      payload_fields: [externalId, event]
+      response_expected_fields: [externalId, humanId, url]

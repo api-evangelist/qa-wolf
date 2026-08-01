@@ -1,0 +1,68 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.npmjs.com/~qawolf , https://docs.qawolf.com/llms.txt
+packages:
+  - language: javascript
+    registry: npm
+    name: "@qawolf/cli"
+    version: 1.2.0
+    url: https://www.npmjs.com/package/@qawolf/cli
+    install: npm install -g @qawolf/cli
+    description: Run and manage QA Wolf flows from the terminal, CI, or an AI agent.
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@qawolf/ci-sdk"
+    version: 2.0.0
+    url: https://www.npmjs.com/package/@qawolf/ci-sdk
+    install: npm install @qawolf/ci-sdk
+    description: SDK for triggering and polling QA Wolf test runs from CI scripts.
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@qawolf/flows"
+    version: 0.1.4
+    url: https://www.npmjs.com/package/@qawolf/flows
+    install: npm install @qawolf/flows
+    description: TypeScript toolkit for defining QA Wolf web, iOS, and Android flows.
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@qawolf/emails"
+    version: 1.1.1
+    url: https://www.npmjs.com/package/@qawolf/emails
+    install: npm install @qawolf/emails
+    description: TypeScript toolkit to create inboxes and verify emails inside flows.
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@qawolf/testkit"
+    version: 1.2.0
+    url: https://www.npmjs.com/package/@qawolf/testkit
+    install: npm install @qawolf/testkit
+    description: TypeScript toolkit of flow helpers (screenshots, QR decoding, more).
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@qawolf/pom"
+    version: 0.0.1
+    url: https://www.npmjs.com/package/@qawolf/pom
+    install: npm install @qawolf/pom
+    description: TypeScript toolkit for building page object models in flows.
+    official: true
+  - language: javascript
+    registry: npm
+    name: qawolf
+    version: 2.6.1
+    url: https://www.npmjs.com/package/qawolf
+    install: npm install qawolf
+    description: Legacy open-source browser test creation library (Playwright codegen).
+    official: true
+  - language: ruby
+    registry: github
+    name: fastlane-plugin-qawolf
+    url: https://github.com/qawolf/fastlane-plugin-qawolf
+    install: fastlane add_plugin qawolf
+    description: Fastlane plugin to upload mobile build artifacts to QA Wolf.
+    official: true
+    note: Published as a GitHub repo; not found on RubyGems under this name (HTTP 404).

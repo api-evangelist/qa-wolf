@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/qa-wolf-rest-openapi.yml
+note: >-
+  No official hosted/remote QA Wolf MCP server was found. QA Wolf ships
+  first-party AI-agent support through its CLI instead (the @qawolf/cli --agent
+  mode and Claude Code / Cursor agent-skill integration). The tools below are a
+  candidate MCP surface derived from the documented v0 REST operations.
+server:
+  name: qa-wolf
+  transport: http
+tools:
+  - name: notify_deploy_success
+    description: Notify QA Wolf of a successful deployment to trigger a test run.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess
+  - name: notify_environment_terminated
+    description: Notify QA Wolf that an ephemeral environment was terminated.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyEnvironmentTerminated
+  - name: get_ci_greenlight
+    description: Poll for the outcome of a run to gate a CI pipeline.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#getCiGreenlight
+  - name: get_run_input_executable_signed_url
+    description: Generate a signed URL to upload an executable run input.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#getRunInputExecutableSignedUrl

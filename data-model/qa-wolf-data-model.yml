@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qawolf.com/qawolf/Glossary-29c5b2a994fb806d93f2ce4554a2fcfc.md
+note: >-
+  Derived from QA Wolf's documented domain glossary rather than an OpenAPI schema
+  graph (the v0 REST API exposes only CI actions, not full CRUD). Entities and
+  relationships reflect the platform's documented concepts.
+entities:
+  - name: Workspace
+    description: Top-level account container with members, roles, and settings.
+  - name: Environment
+    description: A configured target (variables, concurrency, VPN) that flows run against.
+  - name: Flow
+    description: A single end-to-end test (Playwright/Appium code) that lives in an environment.
+  - name: Group
+    description: A named collection of flows used for scheduling and organization.
+  - name: Run
+    description: An execution of one or more flows; retries failures and reports results.
+  - name: Suite
+    description: A set of runs created by a trigger (e.g. from deploy_success).
+  - name: Trigger
+    description: A rule that starts runs on schedule or on a deploy/CI event.
+  - name: Map
+    description: A structured coverage outline of an application's user journeys.
+  - name: BugReport
+    description: A confirmed product defect linked to failing flows.
+  - name: MaintenanceReport
+    description: A record quarantining flows that fail due to test (not product) issues.
+relationships:
+  - from: Workspace
+    type: has_many
+    to: Environment
+  - from: Environment
+    type: has_many
+    to: Flow
+  - from: Group
+    type: has_many
+    to: Flow
+  - from: Trigger
+    type: has_many
+    to: Suite
+  - from: Suite
+    type: has_many
+    to: Run
+  - from: Run
+    type: has_many
+    to: BugReport
+  - from: Run
+    type: has_many
+    to: MaintenanceReport
+  - from: Map
+    type: belongs_to
+    to: Workspace

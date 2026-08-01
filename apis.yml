@@ -1,28 +1,144 @@
 aid: qa-wolf
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qa-wolf.png
 name: QA Wolf
-description: 'QA Wolf is a company surfaced as a portfolio company of scale-venture-partners, threshold-ventures
-  and added to the API Evangelist network as a stub for enrichment. Sector: devtools. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  QA Wolf is a hybrid platform and service that takes QA off software teams'
+  plates: AI maps an application's user journeys, converts plain-language prompts
+  into Playwright and Appium tests, and runs those flows in massively parallel
+  cloud infrastructure across web, iOS, and Android. Alongside the platform QA
+  Wolf offers coverage-as-a-service staffed by dedicated QA engineers. For
+  developers it ships a first-party TypeScript toolchain — the qawolf CLI, a CI
+  SDK, and the @qawolf/flows, @qawolf/emails, @qawolf/testkit, and @qawolf/pom
+  libraries — plus a small v0 REST API and CI webhooks for triggering runs and
+  gating deployment pipelines. This profile was enriched by the API Evangelist
+  pipeline from QA Wolf's public developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/qa-wolf/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - scale-venture-partners
 - threshold-ventures
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Devtools
-apis: []
+- Testing
+- Test Automation
+- QA
+- CI/CD
+- Playwright
+- Developer Tools
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: qa-wolf:qa-wolf-ci-api
+  name: QA Wolf CI API
+  description: Continuous integration triggers and pipeline gating
+  humanURL: https://docs.qawolf.com/qawolf/rest-overview
+  baseURL: https://app.qawolf.com
+  tags:
+  - CI
+  properties:
+  - type: OpenAPI
+    url: openapi/qa-wolf-ci-api-openapi.yml
+  - type: APIReference
+    url: https://docs.qawolf.com/qawolf/rest-overview
+- aid: qa-wolf:qa-wolf-webhooks-api
+  name: QA Wolf Webhooks API
+  description: Deployment and environment lifecycle notifications to QA Wolf
+  humanURL: https://docs.qawolf.com/qawolf/rest-overview
+  baseURL: https://app.qawolf.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/qa-wolf-webhooks-api-openapi.yml
+  - type: APIReference
+    url: https://docs.qawolf.com/qawolf/rest-overview
 common:
+# --- identity / link properties ---
 - type: Website
   url: https://www.qawolf.com/
+- type: DeveloperPortal
+  url: https://docs.qawolf.com/qawolf/Welcome-to-QA-Wolf
+- type: Documentation
+  url: https://docs.qawolf.com/qawolf/Welcome-to-QA-Wolf
+- type: APIReference
+  url: https://docs.qawolf.com/qawolf/rest-overview
+- type: GettingStarted
+  url: https://docs.qawolf.com/qawolf/quick-start
+- type: Blog
+  url: https://www.qawolf.com/blog
+- type: GitHubOrganization
+  url: https://github.com/qawolf
+- type: Support
+  url: mailto:hello@qawolf.com
+- type: Pricing
+  url: https://www.qawolf.com/pricing
+- type: SignUp
+  url: https://www.qawolf.com/get-started
+- type: Login
+  url: https://app.qawolf.com/sign-in
+- type: TermsOfService
+  url: https://www.qawolf.com/legal/terms
+- type: PrivacyPolicy
+  url: https://www.qawolf.com/legal/privacy-policy
+- type: StatusPage
+  url: https://status.qawolf.com/
+- type: Compliance
+  url: https://trust.qawolf.com/
+# --- artifacts ---
+- type: Authentication
+  url: authentication/qa-wolf-authentication.yml
+- type: TrustCenter
+  url: security/qa-wolf-trust-center.yml
+- type: DomainSecurity
+  url: security/qa-wolf-domain-security.yml
+- type: Packages
+  url: packages/qa-wolf-packages.yml
+- type: SDKs
+  url: packages/qa-wolf-packages.yml
+- type: CLI
+  url: cli/qa-wolf-cli.yml
+- type: LLMsTxt
+  url: llms/qa-wolf-llms.txt
+- type: Webhooks
+  url: asyncapi/qa-wolf-webhooks.yml
+- type: Conventions
+  url: conventions/qa-wolf-conventions.yml
+- type: ErrorCatalog
+  url: errors/qa-wolf-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/qa-wolf-lifecycle.yml
+- type: Conformance
+  url: conformance/qa-wolf-conformance.yml
+- type: MCPServer
+  url: mcp/qa-wolf-mcp.yml
+- type: DataModel
+  url: data-model/qa-wolf-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

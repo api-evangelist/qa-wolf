@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qawolf.com/qawolf/rest-overview.md , https://status.qawolf.com/
+versioning:
+  scheme: uri-path
+  current: v0
+  docs: https://docs.qawolf.com/qawolf/rest-overview
+status_page: https://status.qawolf.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/sunset policy found.
+sla:
+  url: null
+  note: No public SLA page found; enterprise SLAs are likely contractual.
+deprecated_operations: []

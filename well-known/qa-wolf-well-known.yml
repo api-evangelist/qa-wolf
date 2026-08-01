@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+note: >-
+  Probed the standard /.well-known/ discovery surface on the QA Wolf hosts. None
+  were served (all 404/absent). Absence is valid recorded data; no WellKnown
+  pointer is wired.
+hosts:
+  - https://www.qawolf.com
+  - https://app.qawolf.com
+  - https://docs.qawolf.com
+documents:
+  - path: /.well-known/security.txt
+    host: https://www.qawolf.com
+    status: 404
+  - path: /security.txt
+    host: https://www.qawolf.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: https://docs.qawolf.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: https://www.qawolf.com
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: https://app.qawolf.com
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://app.qawolf.com
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: https://docs.qawolf.com
+    status: 404

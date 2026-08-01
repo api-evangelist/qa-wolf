@@ -1,0 +1,73 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.qawolf.com/qawolf/libraries/cli/api-reference/index.md
+name: qawolf
+package: "@qawolf/cli"
+summary: >-
+  The qawolf CLI runs and manages QA Wolf flows from your terminal, CI, or an AI
+  agent. It authenticates to a workspace, pulls flows into a local cache, installs
+  runtime dependencies, and runs flows locally or triggers runs on the platform.
+install:
+  - method: npm
+    command: npm install -g @qawolf/cli
+  - method: binary
+    note: Standalone binaries are published for Linux, macOS, and Windows.
+runtime:
+  node: ">=20.19"
+config_file: qawolf.config.ts
+auth:
+  method: bearer
+  env: QAWOLF_API_KEY
+  docs: https://docs.qawolf.com/qawolf/local-execution/authenticate
+commands:
+  - name: auth
+    description: Manage authentication.
+    subcommands:
+      - login
+  - name: flows
+    description: Run, list, and pull flows.
+    subcommands:
+      - pull   # supports --env
+      - run
+  - name: install
+    description: Install runtime dependencies for the project.
+  - name: init
+    description: Scaffold a project in the current directory.
+  - name: doctor
+    description: Diagnose problems running flows locally.
+  - name: run
+    description: Trigger and manage QA Wolf runs on the platform.
+global_flags:
+  - flag: --verbose
+    description: Emit debug logs to stderr.
+  - flag: --json
+    description: Format output as JSON.
+  - flag: --agent
+    description: Format output for AI-agent consumption.
+  - flag: -V, --version
+    description: Print the CLI version.
+environment_variables:
+  auth:
+    - QAWOLF_API_KEY   # required
+  ci_detection:
+    - CI
+    - GITHUB_ACTIONS
+    - GITLAB_CI
+    - CIRCLECI
+    - JENKINS_URL
+    - BUILDKITE
+  agent_detection:
+    - CLAUDE_CODE
+    - CURSOR_SESSION_ID
+exit_codes:
+  0: Success
+  1: Test failure
+  2: Invalid arguments
+  3: Missing or invalid API key
+  4: Network error
+  5: Config error
+docs:
+  reference: https://docs.qawolf.com/qawolf/libraries/cli/api-reference/index
+  commands: https://docs.qawolf.com/qawolf/libraries/cli/api-reference/commands
+  environment_variables: https://docs.qawolf.com/qawolf/libraries/cli/api-reference/environment-variables
+  troubleshooting: https://docs.qawolf.com/qawolf/libraries/cli/troubleshooting

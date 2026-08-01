@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/qa-wolf-rest-openapi.yml
+format: http-status
+notes: >-
+  QA Wolf's v0 REST API signals errors with plain HTTP status codes; no
+  application/problem+json (RFC 9457) envelope is documented. Codes below are
+  derived from the published REST/webhook reference.
+problems:
+  - status: 200
+    title: Accepted
+    detail: >-
+      Request accepted. For deploy_success, inspect the results[] body to confirm
+      run creation (created_suite_id) vs. deduplication (duplicate_suite_id) or a
+      failure_reason.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess
+  - status: 401
+    title: Invalid API key
+    remediation: Check the QAWOLF_API_KEY bearer token (Workspace Settings -> Integrations -> API Access).
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess
+  - status: 403
+    title: Disabled team
+    remediation: The workspace/team is disabled; contact QA Wolf support.
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess
+  - status: 405
+    title: Method not allowed
+    remediation: Use the documented HTTP method (POST for deploy_success / environment_terminated).
+    source_operation: openapi/qa-wolf-rest-openapi.yml#notifyDeploySuccess

@@ -1,0 +1,8 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/qa-wolf-rest-openapi.yml
+skills:
+  - file: qa-wolf-trigger-and-gate-ci.md
+    name: Trigger QA Wolf on deploy and gate the pipeline
+    api: openapi/qa-wolf-rest-openapi.yml
+    operations: [notifyDeploySuccess, getCiGreenlight, notifyEnvironmentTerminated]

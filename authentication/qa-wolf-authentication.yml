@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/qa-wolf-rest-openapi.yml
+docs: https://docs.qawolf.com/qawolf/local-execution/authenticate
+notes: >-
+  API access uses a workspace API key (QAWOLF_API_KEY) passed as a bearer token
+  in the Authorization header. Platform sign-in additionally supports SSO via an
+  identity provider (Okta, OneLogin, Entra ID) and MFA. Inbound bug-tracker
+  webhooks from QA Wolf can carry optional HTTP basic auth.
+sso:
+  supported: true
+  providers: [Okta, OneLogin, Entra ID]
+  docs: https://docs.qawolf.com/qawolf/sso
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer token using the workspace API key (QAWOLF_API_KEY). Find the key in the
+    platform under Workspace Settings -> Integrations -> API Access.
+  sources:
+  - openapi/qa-wolf-rest-openapi.yml

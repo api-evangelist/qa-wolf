@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for QA Wolf REST API
+  version: 1.0.0
+extends: openapi/qa-wolf-rest-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-api-style: rest
+      x-auth: bearer-api-key
+  - target: $.info
+    update:
+      x-related-artifacts:
+        cli: cli/qa-wolf-cli.yml
+        packages: packages/qa-wolf-packages.yml
+        webhooks: asyncapi/qa-wolf-webhooks.yml
+        authentication: authentication/qa-wolf-authentication.yml
+        conventions: conventions/qa-wolf-conventions.yml
+        errors: errors/qa-wolf-problem-types.yml

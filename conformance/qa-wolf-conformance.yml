@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/qa-wolf-rest-openapi.yml , https://trust.qawolf.com/
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: REST API uses a static workspace API key (bearer), not OAuth2 flows.
+  - id: oidc
+    conforms: false
+    note: Platform sign-in supports SSO/OIDC via IdPs (Okta/OneLogin/Entra), but the API itself is key-authenticated.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are plain HTTP status codes; no application/problem+json envelope.
+  - id: rest-http
+    conforms: true
+    evidence: JSON over HTTPS, bearer auth, uri-path versioning (/api/v0/...).
+  - id: soc2
+    conforms: true
+    evidence: SOC 2 listed on trust.qawolf.com
+  - id: hipaa
+    conforms: true
+    evidence: HIPAA listed on trust.qawolf.com
+compliance:
+  program_url: https://trust.qawolf.com/
+  certifications: [SOC 2, HIPAA]

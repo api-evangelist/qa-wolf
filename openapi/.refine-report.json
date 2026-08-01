@@ -1,0 +1,16 @@
+{
+  "provider": "qa-wolf",
+  "sources": [
+    "qa-wolf-ci-api-openapi.yml",
+    "qa-wolf-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "qa-wolf-ci-api-openapi.yml",
+    "qa-wolf-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
