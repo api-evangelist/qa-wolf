@@ -75,6 +75,8 @@ apis:
   - type: APIReference
     url: https://docs.qawolf.com/qawolf/rest-overview
 common:
+- type: Overlay
+  url: overlays/qa-wolf-rest-overlay.yaml
 # --- identity / link properties ---
 - type: Website
   url: https://www.qawolf.com/
