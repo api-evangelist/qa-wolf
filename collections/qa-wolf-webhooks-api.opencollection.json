@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QA Wolf REST CI Webhooks API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Notify QA Wolf of a successful deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.qawolf.com/api/webhooks/deploy_success",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Notify QA Wolf of a successful deployment to trigger a test run. Match rules on the QA Wolf side decide which triggers fire and which flows run."
+        },
+        {
+          "info": {
+            "name": "Notify QA Wolf that an ephemeral environment has been terminated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.qawolf.com/api/webhooks/environment_terminated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Notify QA Wolf that an ephemeral environment has been terminated. Stops all runs targeting the environment and requests flow promotion to the static base environment. The environment will show as \"closed\" in QA Wolf."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

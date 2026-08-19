@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QA Wolf REST CI API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Notify QA Wolf of a successful deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.qawolf.com/api/webhooks/deploy_success",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Notify QA Wolf of a successful deployment to trigger a test run. Match rules on the QA Wolf side decide which triggers fire and which flows run."
+        },
+        {
+          "info": {
+            "name": "Notify QA Wolf that an ephemeral environment has been terminated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.qawolf.com/api/webhooks/environment_terminated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Notify QA Wolf that an ephemeral environment has been terminated. Stops all runs targeting the environment and requests flow promotion to the static base environment. The environment will show as \"closed\" in QA Wolf."
+        },
+        {
+          "info": {
+            "name": "Poll for the outcome of a run to gate a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.qawolf.com/api/v0/ci-greenlight/:rootRunId",
+            "params": [
+              {
+                "name": "rootRunId",
+                "value": "",
+                "type": "path",
+                "description": "The root run id returned when a run was triggered."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the outcome of a run for use as a pipeline gate. Poll this endpoint until the run reaches a terminal state, then pass or fail the pipeline based on the reported outcome."
+        },
+        {
+          "info": {
+            "name": "Generate a signed URL for an executable run input",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.qawolf.com/api/v0/run-inputs-executables-signed-urls",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generate a signed URL to upload an executable file to QA Wolf."
+        },
+        {
+          "info": {
+            "name": "Upload an executable file via a signed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.qawolf.com/api/v0/run-inputs-executables-signed-urls"
+          },
+          "docs": "Upload an executable file to QA Wolf using a previously generated signed URL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

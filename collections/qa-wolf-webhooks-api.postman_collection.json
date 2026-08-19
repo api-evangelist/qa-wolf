@@ -1,0 +1,500 @@
+{
+  "item": [
+    {
+      "id": "61830596-7e6c-4f56-823e-bc8acafe9f99",
+      "name": "Webhooks",
+      "description": {
+        "content": "Deployment and environment lifecycle notifications to QA Wolf",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df849360-45e7-4b6b-9657-1b994c05a982",
+          "name": "Notify QA Wolf of a successful deployment",
+          "request": {
+            "name": "Notify QA Wolf of a successful deployment",
+            "description": {
+              "content": "Notify QA Wolf of a successful deployment to trigger a test run. Match rules on the QA Wolf side decide which triggers fire and which flows run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                "deploy_success"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"branch\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"deployment_type\": \"<string>\",\n  \"deployment_url\": \"<string>\",\n  \"hosting_service\": \"GitHub\",\n  \"commit_url\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 6772.489952797372\n  },\n  \"deduplication_key\": \"<string>\",\n  \"ephemeral_environment\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a23ff898-9aa8-4922-9753-e9bbf35f6045",
+              "name": "Request accepted. Inspect the body to confirm run creation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "deploy_success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branch\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"deployment_type\": \"<string>\",\n  \"deployment_url\": \"<string>\",\n  \"hosting_service\": \"GitHub\",\n  \"commit_url\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\"\n  },\n  \"deduplication_key\": \"<string>\",\n  \"ephemeral_environment\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"created_suite_id\": \"string\",\n      \"duplicate_suite_id\": \"string\",\n      \"trigger_id\": \"string\",\n      \"failure_reason\": \"string\"\n    },\n    {\n      \"created_suite_id\": \"string\",\n      \"duplicate_suite_id\": \"string\",\n      \"trigger_id\": \"string\",\n      \"failure_reason\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecb6a213-2282-41d7-a7c4-7ba378e2a65b",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "deploy_success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branch\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"deployment_type\": \"<string>\",\n  \"deployment_url\": \"<string>\",\n  \"hosting_service\": \"GitHub\",\n  \"commit_url\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\"\n  },\n  \"deduplication_key\": \"<string>\",\n  \"ephemeral_environment\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98149753-82ad-48b9-9d4b-747ed0e58c9c",
+              "name": "Disabled team",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "deploy_success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branch\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"deployment_type\": \"<string>\",\n  \"deployment_url\": \"<string>\",\n  \"hosting_service\": \"GitHub\",\n  \"commit_url\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\"\n  },\n  \"deduplication_key\": \"<string>\",\n  \"ephemeral_environment\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27f91aec-5489-427e-b356-7dbe37e756c2",
+              "name": "Wrong HTTP method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "deploy_success"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branch\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"deployment_type\": \"<string>\",\n  \"deployment_url\": \"<string>\",\n  \"hosting_service\": \"GitHub\",\n  \"commit_url\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\"\n  },\n  \"deduplication_key\": \"<string>\",\n  \"ephemeral_environment\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df7557e0-bc73-463e-8cfc-0b1545c7509f",
+          "name": "Notify QA Wolf that an ephemeral environment has been terminated",
+          "request": {
+            "name": "Notify QA Wolf that an ephemeral environment has been terminated",
+            "description": {
+              "content": "Notify QA Wolf that an ephemeral environment has been terminated. Stops all runs targeting the environment and requests flow promotion to the static base environment. The environment will show as \"closed\" in QA Wolf.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                "environment_terminated"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deployment_url\": \"<string>\",\n  \"branch\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa54e07d-70f9-4853-af61-2a768991c5ac",
+              "name": "Termination accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "environment_terminated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deployment_url\": \"<string>\",\n  \"branch\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c2f2a4d-dce0-44ef-9c44-7c3148d0323e",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "environment_terminated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deployment_url\": \"<string>\",\n  \"branch\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "368f726f-37b0-4622-afe3-0531a73f8964",
+              "name": "Disabled team",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "environment_terminated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deployment_url\": \"<string>\",\n  \"branch\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.qawolf.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "71676ba3-8cda-47ff-b971-9570ae6dca9b",
+    "name": "QA Wolf REST CI Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The QA Wolf REST API provides direct HTTP access to core platform actions: triggering test runs on deployment, polling run outcomes to gate CI pipelines, and generating signed URLs to upload executable run inputs. QA Wolf recommends the @qawolf/ci-sdk library for most use cases rather than calling these endpoints directly. This specification was generated by the API Evangelist enrichment pipeline from QA Wolf's published REST API reference documentation; it is a faithful capture of documented behavior, not a provider-published OpenAPI file.\n\nContact Support:\n Name: QA Wolf\n Email: hello@qawolf.com",
+      "type": "text/plain"
+    }
+  }
+}
