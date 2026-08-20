@@ -37,6 +37,15 @@ created: '2026-07-17'
 modified: '2026-07-20'
 tags:
 - Company
+- DevTools
+- Testing
+- Test Automation
+- QA
+- CI/CD
+- Playwright
+- Developer Tools
+tags_raw:
+- Company
 - Devtools
 - Testing
 - Test Automation
@@ -68,6 +77,8 @@ apis:
   humanURL: https://docs.qawolf.com/qawolf/rest-overview
   baseURL: https://app.qawolf.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
