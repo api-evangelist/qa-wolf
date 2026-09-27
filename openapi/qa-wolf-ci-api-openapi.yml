@@ -119,6 +119,30 @@ paths:
           description: Upload accepted
 components:
   schemas:
+    EnvironmentTerminatedRequest:
+      type: object
+      properties:
+        deployment_url:
+          type: string
+          description: The URL of the ephemeral environment that was terminated.
+        branch:
+          type: string
+    DeploySuccessResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              created_suite_id:
+                type: string
+              duplicate_suite_id:
+                type: string
+              trigger_id:
+                type: string
+              failure_reason:
+                type: string
     DeploySuccessRequest:
       type: object
       description: Fields describing a successful deployment that should trigger runs.
@@ -155,30 +179,6 @@ components:
         ephemeral_environment:
           type: boolean
           description: Use with deployment_url for non-integrated ephemeral deployments.
-    EnvironmentTerminatedRequest:
-      type: object
-      properties:
-        deployment_url:
-          type: string
-          description: The URL of the ephemeral environment that was terminated.
-        branch:
-          type: string
-    DeploySuccessResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              created_suite_id:
-                type: string
-              duplicate_suite_id:
-                type: string
-              trigger_id:
-                type: string
-              failure_reason:
-                type: string
   securitySchemes:
     bearerAuth:
       type: http
