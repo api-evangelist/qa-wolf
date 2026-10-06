@@ -47,7 +47,7 @@ x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - DevTools
@@ -99,6 +99,8 @@ apis:
   - type: APIReference
     url: https://docs.qawolf.com/qawolf/rest-overview
 common:
+- url: https://www.qawolf.com/blog/rss.xml
+  type: BlogRSS
 - type: Overlay
   url: overlays/qa-wolf-rest-overlay.yaml
 # --- identity / link properties ---
