@@ -1,7 +1,14 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- https://api.nuget.org/v3
 - https://azuremarketplace.microsoft.com/
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -19,3 +26,68 @@ edges:
   seller_name: QA Wolf
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@qawolf/ci-sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@qawolf/ci-sdk'
+      version: 3.4.0
+      released: '2026-10-12'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/ci-sdk
+      repo_leg: github-org:qawolf
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/cli'
+      version: 2.2.0
+      released: '2026-10-15'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/cli
+      repo_leg: domain:qawolf.com
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/flows'
+      version: 0.3.0
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/flows
+      repo_leg: github-org:qawolf
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/pom'
+      version: 0.6.1
+      released: '2026-08-28'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/pom
+      repo_leg: domain:qawolf.com
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+source:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
