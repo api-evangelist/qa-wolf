@@ -15,3 +15,82 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: qa-wolf-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@qawolf/ci-sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@qawolf/ci-sdk'
+      version: 3.4.0
+      released: '2026-10-12'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/ci-sdk
+      repo_leg: github-org:qawolf
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/cli'
+      version: 2.2.0
+      released: '2026-10-15'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/cli
+      repo_leg: domain:qawolf.com
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/flows'
+      version: 0.3.0
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/flows
+      repo_leg: github-org:qawolf
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    - name: '@qawolf/pom'
+      version: 0.6.1
+      released: '2026-08-28'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@qawolf/pom
+      repo_leg: domain:qawolf.com
+      publisher_leg: email:qawolf.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: qa-wolf-skillsmp-skillsmp-com
+  label: SkillsMP (skillsmp.com)
+  partner_name: SkillsMP (skillsmp.com)
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://skillsmp.com/creators/qawolf
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: SkillsMP (skillsmp.com) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: qawolf
+    matched_by: org-profile-domain:qawolf.com
+    sample_skills: []
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
