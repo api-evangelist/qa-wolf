@@ -99,6 +99,8 @@ apis:
   - type: APIReference
     url: https://docs.qawolf.com/qawolf/rest-overview
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/qa-wolf/overview
 - url: https://www.qawolf.com/blog/rss.xml
   type: BlogRSS
 - type: Overlay
